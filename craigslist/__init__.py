@@ -130,6 +130,9 @@ class CraigslistBase(object):
             except KeyError:
                 self.logger.warning("'%s' is not a valid filter", key)
 
+    def manual_add_filter(self, url_key, value):
+        self.filters[url_key] = value
+
     def set_logger(self, log_level, init=False):
         if init:
             self.logger = logging.getLogger('python-craiglist')
@@ -385,10 +388,14 @@ class CraigslistHousing(CraigslistBase):
         'search_distance': {'url_key': 'search_distance', 'value': None},
         'zip_code': {'url_key': 'postal', 'value': None},
         'bedrooms': {'url_key': 'bedrooms', 'value': None},
+        'min_bedrooms': {'url_key': 'min_bedrooms', 'value': None},
+        'max_bedrooms': {'url_key': 'max_bedrooms', 'value': None},
         'bathrooms': {'url_key': 'bathrooms', 'value': None},
         'no_smoking': {'url_key': 'no_smoking', 'value': 1},
         'is_furnished': {'url_key': 'is_furnished', 'value': 1},
         'wheelchair_acccess': {'url_key': 'wheelchaccess', 'value': 1},
+        'availability' : {'url_key': 'availabilityMode', 'value' : None},
+        'parking' : {'url_key': 'parking', 'value' : None},
     }
 
 
